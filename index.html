@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON to List Viewer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Universal Data Viewer (JSON/CSV)</h1>
+            <div id="dataTypeIndicator" class="data-type-indicator" style="display: none;">JSON</div>
+            <button id="toggleButton" class="toggle-button" title="Toggle input panel">
+                Hide Input Panel
+            </button>
+        </div>
+        
+        <div class="content">
+            <!-- Left Panel: Data Input -->
+            <div id="leftPanel" class="panel panel-left">
+                <h2 class="panel-title">Data Input</h2>
+                <textarea id="dataInput" class="data-input" placeholder="Paste your JSON or CSV data here..."></textarea>
+            </div>
+            
+            <!-- Right Panel: List View Output -->
+            <div id="rightPanel" class="panel panel-right">
+                <h2 class="panel-title">List View Output</h2>
+                
+                <!-- Field Selector (Initially Hidden) -->
+                <div id="fieldSelector" class="field-selector" style="display: none;">
+                    <p class="field-selector-title">Select fields to display:</p>
+                    <div id="fieldOptions" class="field-options"></div>
+                </div>
+                
+                <!-- Filters (Initially Hidden) -->
+                <div id="filtersContainer" class="filters-container" style="display: none;">
+                    <p class="filters-title">Filter results:</p>
+                    <div id="filterRows"></div>
+                    <button id="addFilterButton" class="filter-button">Add Filter</button>
+                    <button id="applyFiltersButton" class="filter-button">Apply Filters</button>
+                    <button id="clearFiltersButton" class="filter-button">Clear Filters</button>
+                </div>
+                
+                <!-- Error Message (Initially Hidden) -->
+                <div id="errorMessage" class="error-message" style="display: none;"></div>
+                
+                <!-- Output Container -->
+                <div id="outputContainer" class="output-container">
+                    <div class="placeholder">Enter valid JSON or CSV data on the left to see the list view here</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

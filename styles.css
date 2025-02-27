@@ -1,0 +1,265 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body, html {
+    height: 100%;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.header {
+    background-color: #f3f4f6;
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 1px solid #e5e7eb;
+    position: relative;
+}
+
+.data-type-indicator {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    font-size: 0.875rem;
+    font-weight: bold;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    color: white;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.data-type-json {
+    background-color: #3b82f6;
+}
+
+.data-type-csv {
+    background-color: #10b981;
+}
+
+.content {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+}
+
+.panel {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: width 0.3s ease;
+}
+
+.panel-left {
+    width: 50%;
+    border-right: 1px solid #e5e7eb;
+    position: relative;
+}
+
+.panel-right {
+    width: 50%;
+    transition: width 0.3s ease;
+}
+
+/* When left panel is hidden */
+.left-hidden .panel-left {
+    width: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.left-hidden .panel-right {
+    width: 100%;
+}
+
+.toggle-button {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 200px;
+    height: 40px;
+    background-color: #d1d5db;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.875rem;
+    font-weight: bold;
+    padding: 0;
+}
+
+.toggle-button:hover {
+    background-color: #b9bcc1;
+}
+
+.panel-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.data-input {
+    flex: 1;
+    padding: 0.5rem;
+    font-family: monospace;
+    font-size: 0.875rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.25rem;
+    resize: none;
+}
+
+.field-selector {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.25rem;
+    background-color: #f9fafb;
+}
+
+.field-selector-title {
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+.field-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.field-option {
+    display: flex;
+    align-items: center;
+}
+
+.field-option input {
+    margin-right: 0.25rem;
+}
+
+.error-message {
+    color: #ef4444;
+    padding: 0.5rem;
+    border: 1px solid #f87171;
+    background-color: #fee2e2;
+    border-radius: 0.25rem;
+    margin-bottom: 1rem;
+}
+
+.output-container {
+    flex: 1;
+    overflow: auto;
+}
+
+.item {
+    border: 1px solid #d1d5db;
+    border-radius: 0.25rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.field {
+    margin-bottom: 0.5rem;
+}
+
+.field-name {
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+.field-value {
+    white-space: pre-line;
+    padding-left: 0;
+    font-size: 0.875rem;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+/* Styles for rendered HTML content */
+.field-value ul, .field-value ol {
+    margin-left: 1.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.field-value li {
+    margin-bottom: 0.25rem;
+}
+
+.field-value b, .field-value strong {
+    font-weight: bold;
+}
+
+.field-value i, .field-value em {
+    font-style: italic;
+}
+
+.placeholder {
+    color: #6b7280;
+    font-style: italic;
+}
+
+/* Filters */
+.filters-container {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.25rem;
+    background-color: #f9fafb;
+}
+
+.filters-title {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.filter-row {
+    display: flex;
+    margin-bottom: 0.5rem;
+    align-items: center;
+}
+
+.filter-label {
+    width: 120px;
+    font-size: 0.875rem;
+}
+
+.filter-input {
+    flex: 1;
+    padding: 0.25rem 0.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+}
+
+.filter-button {
+    margin-left: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    background-color: #e5e7eb;
+    border: 1px solid #d1d5db;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-size: 0.875rem;
+}
+
+.filter-button:hover {
+    background-color: #d1d5db;
+}
